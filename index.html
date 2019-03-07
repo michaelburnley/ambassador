@@ -1,0 +1,281 @@
+<link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const header = {
+        "Api-Key": "f3181c3866a1a1e9f4b6a1bfc530de3275f5e4aa",
+        "Content-Type": "application/json"
+    };
+    const URL = 'https://api.tapfiliate.com/1.6/affiliates/';
+
+    const createAffiliate = () => {
+        let htmlcoll = document.getElementsByClassName('inputs');
+        let inputs = Array.prototype.slice.call(htmlcoll);
+        let info = document.getElementById('transaction_info');
+        let data = {};
+        inputs.forEach((input) => {
+            data[input.name] = input.value;
+        });
+        axios({
+            method: 'post',
+            url: URL,
+            headers: header,
+            data: {
+                ...data
+            }
+        }).then((data) => {
+            console.log(data);
+            inputs.forEach((input) => {
+                input.value = "";
+            })
+            info.innerHTML = "Thanks for signing up. You will receive info in your provided email address, shortly.";
+            info.classList.toggle('hide');
+            info.classList.add('success');
+        }).catch((error) => {
+            inputs.forEach((input) => {
+                input.value = "";
+            })
+            info.innerHTML = "Error submitting your form. Please try again later.";
+            info.classList.toggle('hide');
+            info.classList.add('error');
+            console.log(error);
+        });
+    }
+</script>
+<style>
+    body {
+        margin: 0;
+    }
+    .upper {
+        text-transform: uppercase;
+    }
+
+    .wrapper {
+        /* width: 50%; */
+        margin: auto;
+        margin-bottom: 5%;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .wrapper img {
+        width: 100%;
+        /* margin: 10%; */
+    }
+
+    .middle {
+        text-align: center;
+    }
+
+    form {
+        width: 50%;
+        margin: 10% auto auto auto;
+    }
+    
+    form input {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .split-block {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .title {
+        margin-bottom: 2%;
+    }
+
+    .block {
+        display: inline-block;
+        width: 38%;
+        margin: 5%;
+    }
+
+    .logo-wrapper {
+        width: 30%;
+        margin: auto;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .header {
+        background: url("images/legionnaire-background.jpg");
+        color: white;
+        font-size: 25px;
+    }
+
+    .btn {
+        color: rgb(255, 255, 255);
+        background: #f5ad43;
+        font-size: 28px;
+        padding: 2%;
+        text-transform: uppercase;
+        margin-top: 20%;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px 2px rgba(0,0,0,0.3);
+        transition: background 1s;
+        text-align: center;
+        border: none;
+    }
+
+    .btn:hover {
+        background: red;
+        transition: background 1s;
+    }
+    
+    .video-block.block {
+        vertical-align: top;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    div {
+        font-family: 'Heebo', sans-serif;
+    }
+
+    .details {
+        margin: 5% 14% 14% 14%;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .hide {
+        visibility: hidden;
+    }
+    
+    div#transaction_info {
+        width: 100%;
+        border: 1px solid black;
+        padding: 1%;
+        text-align: center;
+    }
+
+    .error {
+        background: red;
+        color: white;
+    }
+
+    .success {
+        background: #de5e5e;
+        color: white;
+    }
+
+    @media only screen 
+  and (max-device-width: 875px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    div {
+        width: 100%;
+        margin: initial;
+    }
+
+    .details {
+        margin: initial;
+    }
+
+    .block {
+        width: 100%;
+        margin: initial;
+    }
+
+    form {
+        width: 100%;
+        margin: initial;
+    }
+
+    .logo-wrapper {
+        width: 100%;
+        margin: initial;
+    }
+
+    video {
+        width: 100% !important;
+        /* height: 100% !important; */
+    }
+}
+</style>
+<div class="logo-wrapper"><img src="images/1_Percent_Nutrition.png" /></div>
+<div class="header">
+    <div class="split-block">
+        <div class="text-block block">
+            <div class="title bold">Want to become a Brand Ambassador?</div>
+            <span class="bold">One Percent Nutrition is on a worldwide mission to change the lives of over 1,000,000 people to become a one percenter in the aspect of Fitness, Faith, Finance, Family and fun.</span> 
+            <ul>
+                <li>Earn a Brand Ambassador Position</li>
+                <li>One-on-One Coaching to Build Your Fitness Brand</li>
+                <li>Direct Access to 1% Nutrition Affiliate Managers</li>
+                <li>Social Media Tips from Industry Pros</li>
+                <li>Easy Way to Earn Additional Income - $1,000/mo+</li>
+                <li>... and So Much More!</li>
+            </ul>
+        </div>
+        <div class="video-block block">
+            <video controls width="600" height="300">
+                <source src="http://thecamptc.com/videos/ToughLoveTraining.mp4" type="video/mp4">
+            </video>
+            <a href="#affiliate-form">
+                <div class="btn" type="button">Join Now</div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="details">
+    <h1 class="center">Are you ready to be part of our family?</h1>
+    <div class="wrapper">
+            <img src="images/onepercent_relaxing_hq.jpg" alt="logo" />
+    </div>
+    <span class="bold">One Percent Nutrition is on a worldwide mission to change the lives of over 1,000,000 people to become a one percenter in the aspect of Fitness, Faith, Finance, Family and fun.</span> 
+    
+    <p>The One Percent Ambassador program is the first step to becoming an identified as an athlete in the 21st century fitness industry. </p>
+    
+    <p>We are looking to grow our team of people devoted to changing lives and making the upmost positive impact in your community in all 5 aspects: Fitness, Faith, Finance, and Family while having Fun.</p>
+    
+    <p>This is the only program in the world that is set to create a <span class="bold upper">family</span> of like-minded people who are hardworking and want to make their mark on this planet. There are so many benefits to this program such as earning an extra income, getting free product in additional priceless benefits like one on one mentoring to create your personal brand, opportunities to become a sponsored athlete and much more!</p>
+    
+    <p>We are on a mission… going over faster than the speed of light and we want YOU on be a part of this. The most successful ambassadors in this program must be self-motivated, passionate, product knowledgeable, innovative, committed and most importantly <span class="bold upper">consistent</span>!</p> 
+    <h2>BREAKDOWN</h2>
+    <ul>
+        <li>Unique 10% off code for your fans and followers</li>
+        <li>10% commission on all sales that used your personalized code</li>
+        <li><span class="bold">Gold Brand Ambassadors</span> - (those who consistently Sale $1000+ worth of sales per month) will receive 20% commissions</li>
+        <li>One on One coaching to build your brand</li>
+        <li>Social media tips from the best in the world</li>
+        <li>Earn a sponsored athlete position</li>
+        <li>Photoshoot with <span class="upper bold">one</span>% Creative team</li>
+    </ul>
+    
+    <h2 class="middle bold">IS THIS YOU?</h2>
+    <div class="wrapper">
+            <img src="images/onepercent_group_hq.jpg" alt="logo" />
+    </div>
+    <h1 class="center bold">Fill out the below to get started instantly.</h1>
+    <div class="info hide" id="transaction_info"></div>
+    <form method="post" id="affiliate-form"  action="javascript:createAffiliate()">
+        <input class="inputs" placeholder="First Name" name="firstname" type="text" />
+        <input class="inputs" placeholder="Last Name" name="lastname" type="text" />
+        <input class="inputs" placeholder="Email Address" name="email" type="text" />
+        <input class="inputs" placeholder="Password" name="password" type="password" />
+        <button class="btn" type="submit">Join</button>
+    </form>
+</div>
+
+<div class="footer">
+    <a href="onepercentnutrition.com">Privacy Policy</a>
+    <a href="onepercentnutrition.com">Terms of Service</a>
+</div>
