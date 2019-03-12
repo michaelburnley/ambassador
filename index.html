@@ -101,6 +101,10 @@
         margin: auto;
     }
 
+    .mobile {
+        display: none;
+    }
+
     img {
         width: 100%;
     }
@@ -188,6 +192,15 @@
     @media only screen 
   and (max-device-width: 875px)
   and (-webkit-min-device-pixel-ratio: 2) {
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+        margin-bottom: 5%;
+    }
     div {
         width: 100%;
         margin: initial;
@@ -377,12 +390,22 @@
     visibility 0ms,
     z-index 0ms;
 }
+
 </style>
 <div class="logo-wrapper"><img src="images/1_Percent_Nutrition.png" /></div>
 <div class="header">
     <div class="split-block">
         <div class="text-block block">
             <div class="title bold">Want to become a Brand Ambassador?</div>
+            <div class="mobile">
+                    <video id="video" controls autobuffer>
+                            <source src="videos/ambassador.webm" type="video/webm">
+                            <source src="videos/ambassador.mp4">
+                        </video>
+                        <a href="#affiliate-form">
+                            <div class="btn" type="button">Join Now</div>
+                        </a>
+            </div>
             <div class="bold">One Percent Nutrition is on a worldwide mission to change the lives of over 1,000,000 people to become a one percenter in the aspect of Fitness, Faith, Finance, Family and fun.</div> 
             <ul>
                 <li>Earn a Brand Ambassador Position</li>
@@ -394,13 +417,15 @@
             </ul>
         </div>
         <div class="video-block block">
-            <video id="video" controls autobuffer>
-                <source src="videos/ambassador.webm" type="video/webm">
-                <source src="videos/ambassador.mp4">
-            </video>
-            <a href="#affiliate-form">
-                <div class="btn" type="button">Join Now</div>
-            </a>
+            <div class="desktop">
+                <video id="video" controls autobuffer>
+                    <source src="videos/ambassador.webm" type="video/webm">
+                    <source src="videos/ambassador.mp4">
+                </video>
+                <a href="#affiliate-form">
+                    <div class="btn" type="button">Join Now</div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
