@@ -2,7 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    var video = document.getElementById('video'); video.addEventListener('click',function(){ video.play(); },false);
     const header = {
         "Api-Key": "f3181c3866a1a1e9f4b6a1bfc530de3275f5e4aa",
         "Content-Type": "application/json"
@@ -395,9 +394,9 @@
             </ul>
         </div>
         <div class="video-block block">
-            <video id="video" controls>
-                <source src="videos/ambassador.mp4" type="video/mp4">
+            <video id="video" controls autobuffer>
                 <source src="videos/ambassador.webm" type="video/webm">
+                <source src="videos/ambassador.mp4">
             </video>
             <a href="#affiliate-form">
                 <div class="btn" type="button">Join Now</div>
